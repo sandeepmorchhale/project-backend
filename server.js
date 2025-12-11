@@ -1,14 +1,11 @@
-require("dotenv").config()
-const app = require("./src/app")
-const mongodb = require("./src/db/db")
-mongodb()
+require("dotenv").config();
+const app = require("./src/app");
+const connectDB = require("./src/db/db");
 
+// Connect to MongoDB
+connectDB();
 
-// CaT6q1EW8BFAkw03
+// ❗ IMPORTANT: Do NOT use app.listen() in Vercel
+// Instead, export the Express app as a module
 
-
-
-app.listen(5000, () => {
-    console.log("server started")
-})
-
+module.exports = app;
